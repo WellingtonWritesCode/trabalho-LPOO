@@ -20,15 +20,6 @@ import java.util.Scanner;
  * @author jadso
  */
 public class Arquivo {
-    private static void escreveSaida(CadConta contas, String nome, double tempoFinal) throws IOException {
-		FileWriter writer = new FileWriter(new File(nome), false);
-		PrintWriter saida = new PrintWriter(writer);
-		saida.println("Tempo levado para ordenar: " + tempoFinal + " segundos.\n");
-		for(int i = 0; i < contas.getTamanho(); i++) {
-			saida.println(contas.getConta(i));
-		}
-		saida.close();
-	}
 
 	public static CadConta leContas(String arquivo) throws FileNotFoundException {
 		CadConta contas = new CadConta();
