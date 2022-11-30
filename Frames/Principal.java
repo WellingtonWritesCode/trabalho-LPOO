@@ -26,7 +26,7 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         jTextFieldNome.setText("");
         try {
-            contas = Arquivo.leContas("src/pesquisa/contas/cliente10000alea.txt");
+            contas = Arquivo.leContas("src/pesquisa/arquivos/contas.txt");
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }

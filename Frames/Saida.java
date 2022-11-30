@@ -5,6 +5,9 @@
 package Frames;
 
 import Av1C2.CadConta;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pesquisa.ABB;
 import pesquisa.AVL;
 import pesquisa.Arquivo;
@@ -36,7 +39,14 @@ public class Saida extends javax.swing.JFrame {
                 this.contas = new Hashing(10000);
         }
         this.contas.insereTodos(contas);
-        jTextAreaOutput.setText(Arquivo.formataPesquisa(nome, this.contas.pesquisa(nome)));
+        String resultado = Arquivo.formataPesquisa(nome, this.contas.pesquisa(nome));
+        jTextAreaOutput.setText(resultado);
+        try {
+            resultado += "\nMETODO UTILIZADO: " + metodo;
+            Arquivo.escreveSaida("src/pesquisa/arquivos/historicoPesquisas.txt", resultado);
+        } catch (IOException ex) {
+            Logger.getLogger(Saida.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
